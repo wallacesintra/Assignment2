@@ -55,6 +55,7 @@ function greet() {
     storeUsernameInCookie(username);
 }
 
+
 function getCookie(name) {
     var nameEQ = name + "=";
     var cookies = document.cookie.split(';');
@@ -80,19 +81,22 @@ function storeUsernameInCookie(username) {
 function checkVisitorName() {
     const visitorName = getCookie('visitorName');
 
-    if (visitorName) {
-        welcomeMessage.innerHTML = `<p> Hi there! Good to see you again, '${visitorName}' </p>`;
+    let message = ``;
+    if (visitorName !== null && visitorName !== undefined && visitorName !== '') {
+        message += `<p> Hi there! Good to see you again, ${visitorName} </p>`;
         const lastVisit = getCookie('lastVisit');
         if (lastVisit) {
-            welcomeMessage.innerHTML += `<p> Your last visit was on ${lastVisit}. </p>`;
+            const currentDate = new Date();
+            const expires = new Date(currentDate.getTime() + (30 * 24 * 60 * 60 * 1000)); // Set cookie to expire in 30 days
+            document.cookie = `lastVisit=${currentDate.toUTCString()}; expires=${expires.toUTCString()}; SameSite=None; Secure; path=/`;
+            message += `<p> Your last visit was on ${currentDate}. </p>`;
         }
+        console.log(message);
+        welcomeMessage.innerHTML = message;
     }
     else {
         greet()
     }
-    // return visitorName !== null && visitorName !== undefined && visitorName !== '';
 }
 
-// checkVisitorName();
-
-greet()
+checkVisitorName();
