@@ -83,7 +83,7 @@ function checkVisitorName() {
         welcomeMessage.innerHTML = `<p> Hi there! Good to see you again, '${visitorName}' </p>`;
         const lastVisit = getCookie('lastVisit');
         if (lastVisit) {
-            welcomeMessage.innerHTML += `Your last visit was on ${lastVisit}.`;
+            welcomeMessage.innerHTML += `<p> Your last visit was on ${lastVisit}. </p>`;
         }
     }
     else {
