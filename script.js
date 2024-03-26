@@ -20,15 +20,15 @@ function setCookie(name, value, days) {
 
 function greetVisitor() {
   const visitorName = getCookie('visitorName');
-  let message = 'Welcome! ';
+  let message = `<p>Hi there! </p>`;
   if (visitorName) {
-    message += 'Nice to see you again, ' + visitorName + '. ';
+    message += `<p>Good to see you again, '${visitorName}</p>`;
     const lastVisit = getCookie('lastVisit');
     if (lastVisit) {
-      message += 'Your last visit was on ' + lastVisit + '.';
+      message += `<p>Your last visit was on ${lastVisit}.</p>`;
     }
   } else {
-    message += 'Please enter your name below:';
+    message += `<p> Please enter your name below:</p>`;
   }
   welcomeMessage.innerHTML = message;
 }
