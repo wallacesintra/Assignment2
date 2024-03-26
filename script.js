@@ -46,7 +46,8 @@ const submitButton = document.getElementById('submitButton');
 //   }
 // });
 
-let username = ''
+let username
+
 function greet() {
     username = prompt("What is your name?");
     alert("Hello " + username + "! Welcome to my website!");
