@@ -13,15 +13,15 @@ function greet() {
 
 
 function getCookie(name) {
-    var nameEQ = name + "=";
+    var eq = name + "=";
     var cookies = document.cookie.split(';');
     for(var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i];
         while (cookie.charAt(0) == ' ') {
             cookie = cookie.substring(1, cookie.length);
         }
-        if (cookie.indexOf(nameEQ) == 0) {
-            return cookie.substring(nameEQ.length, cookie.length);
+        if (cookie.indexOf(eq) == 0) {
+            return cookie.substring(eq.length, cookie.length);
         }
     }
     return null;
@@ -47,7 +47,6 @@ function checkVisitorName() {
             document.cookie = `lastVisit=${currentDate.toUTCString()}; expires=${expires.toUTCString()}; SameSite=None; Secure; path=/`;
             message += `<p> Your last visit was on ${currentDate}. </p>`;
         }
-        console.log(message);
         welcomeMessage.innerHTML = message;
     }
     else {
