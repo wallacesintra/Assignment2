@@ -1,5 +1,5 @@
 const welcomeMessage = document.getElementById('welcomeMessage');
-const visitorNameInput = document.getElementById('visitorName');
+const visitorNameInput = document.getElementById('Name');
 const submitButton = document.getElementById('submitButton');
 
 function getCookie(name) {
@@ -30,7 +30,7 @@ function greetVisitor() {
   } else {
     message += 'Please enter your name below:';
   }
-  welcomeMessage.textContent = message;
+  welcomeMessage.innerHTML = message;
 }
 
 function setLastVisit() {
