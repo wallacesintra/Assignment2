@@ -1,6 +1,4 @@
 const welcomeMessage = document.getElementById('welcomeMessage');
-const visitorNameInput = document.getElementById('Name');
-const submitButton = document.getElementById('submitButton');
 
 let username
 
